@@ -103,6 +103,29 @@
   cursor: pointer;
 }
 
+
+.center-text {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.center-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.center-text p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+
+
+
+
 @media (max-width: 768px) {
   .mobile-buttons {
     display: flex; 

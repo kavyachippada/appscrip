@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaSearch, FaHeart, FaStore, FaUserCircle, FaGlobe, FaBars } from 'react-icons/fa'; // Add FaBars for the hamburger icon
+import { FaSearch, FaHeart, FaStore, FaUserCircle, FaGlobe, FaBars } from 'react-icons/fa';
 import ProductGrid from './pages/ProductGrid';
 import Sidebar from './pages/Sidebar';
 import Footer from './pages/Footer';
@@ -10,6 +10,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false); 
   const [isMobileView, setIsMobileView] = useState(false); 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); 
+
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then((res) => res.json())
@@ -36,7 +37,6 @@ function App() {
     }
   };
 
- 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -46,7 +46,6 @@ function App() {
       
       <header className="header">
         <div className="hamburger-logo-container">
-      
           {isMobileView && (
             <FaBars className="hamburger-icon" onClick={toggleMobileMenu} />
           )}
@@ -97,6 +96,19 @@ function App() {
         </nav>
       )}
 
+      
+
+      {/* Heading placed above Sidebar and ProductGrid */}
+      <div className="center-text">
+        <h2>DISCOVER OUR PRODUCTS</h2>
+        <p>
+          Welcome to our store! Explore a wide range of exciting products designed 
+          to meet all your needs. Whether you're looking for the latest gadgets, 
+          fashion items, or home decor, we have something for everyone.
+        </p>
+      </div>
+
+
       {isMobileView && (
         <div className="mobile-buttons">
           <button onClick={toggleSidebar} className="filter-button">
@@ -106,18 +118,18 @@ function App() {
         </div>
       )}
 
-      <div className="content">
-       
-        {isMobileView && sidebarOpen && <Sidebar />}
 
-        
+
+
+
+
+      <div className="content">
+        {isMobileView && sidebarOpen && <Sidebar />}
         {!isMobileView && <Sidebar />}
 
-       
         <ProductGrid products={products} />
       </div>
 
-      
       <Footer />
     </div>
   );
